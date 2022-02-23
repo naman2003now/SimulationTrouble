@@ -1,7 +1,7 @@
 import Renderer from "./renderer.js"
 
 var gameSettings = {
-	charactersInOneRow: 40,
+	charactersInOneRow: 50,
 }
 
 var root = document.getElementById("root")
