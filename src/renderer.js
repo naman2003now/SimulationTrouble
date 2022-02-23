@@ -10,10 +10,9 @@ export default class Renderer {
 		let tagEnding = "</div>"
 		for (let i = 0; i < this.maxCharacters; i++) {
 			if (i < this.text.length) {
-                console.log(this.text.charAt(i))
 				domOutput += tagStarting + this.text.charAt(i) + tagEnding
 			} else {
-				domOutput += tagStarting + "#" + tagEnding
+				domOutput += tagStarting + i%10 + tagEnding
 			}
 		}
 		return domOutput
