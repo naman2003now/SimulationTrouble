@@ -17,13 +17,11 @@ body {
 
 #terminal {
     user-select: none;
-	border-radius: 10px;
 	--font-size: 0px;
     overflow: hidden;
 	display: flex;
 	align-items: start;
 	justify-content: start;
-	flex-wrap: wrap;
 	width: 80%;
 	height: 80%;
 	color: grey;
