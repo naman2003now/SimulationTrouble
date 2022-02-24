@@ -40,6 +40,8 @@ export default class Renderer {
 			for (let i = x; i < 80; i++) {
 				if (temp < writeString.length) {
 					this.screen[i][j] = writeString.charAt(temp)
+					document.getElementById(i + "," + j).innerHTML =
+						this.screen[i][j]
 					temp += 1
 				}
 			}
@@ -52,6 +54,10 @@ export default class Renderer {
 			this.write(element, x, count)
 			count += 1
 		})
+	}
+
+	clearLine = (y) => {
+		this.write(" ".repeat(80), 0, y)
 	}
 
 	clear = () => {
