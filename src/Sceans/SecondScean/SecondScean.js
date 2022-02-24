@@ -18,41 +18,6 @@ var ticY = [
 	"   ---   ",
 ]
 
-var stickMan = [
-	"  _|/^   ",
-	"   (_oo  ",
-	"    |    ",
-	"   /|\\  ",
-	"    |    ",
-	"    LL   ",
-]
-
-var suicide = [
-	"___________.._______        ",
-	"| .__________))______|       ",
-	"| | / /      ||              ",
-	"| |/ /       ||              ",
-	"| | /        ||.-''.         ",
-	"| |/         |/  _  \\        ",
-	"| |          ||  `/,|        ",
-	"| |          (\\\\`_.'         ",
-	"| |         .-`--'.          ",
-	"| |        /Y . . Y         ",
-	"| |       // |   | \\\\        ",
-	"| |      //  | . |  \\\\       ",
-	"| |     ')   |   |   (`      ",
-	"| |          ||'||           ",
-	"| |          || ||           ",
-	"| |          || ||           ",
-	"| |          || ||           ",
-	"| |         / | | \\          ",
-	'""""""""""|_`-\' `-\' |"""|    ',
-	'|"|"""""""        \'"|"|    ',
-	"| |                 | |    ",
-	": :                 : :    ",
-	". .          `'       . .    ",
-]
-
 var grid = [
 	"             |            |            ",
 	"             |            |            ",
@@ -80,7 +45,7 @@ var grid = [
 	"             |            |            ",
 ]
 
-export default class TicTacToe {
+export default class SecondScean {
 	constructor() {
 		this.renderer = new Renderer()
 		this.terminalText = "root@tic-tac-toe> "
@@ -90,20 +55,24 @@ export default class TicTacToe {
 			0,
 			0
 		)
+		window.onkeydown = this.onKeyDown
+		window.onkeyup = this.onKeyUp
 	}
 
 	update = (toDraw = true) => {
+		this.renderer.clearLine(0)
+		this.renderer.clearLine(1)
+		this.renderer.clearLine(2)
 		this.renderer.write(
 			"Play to win! Controls(commands): top right, bottom left, middle middle, etc..",
 			0,
 			0
 		)
-		this.renderer.clearLine(2)
+
 		this.renderer.write(this.terminalText + "_", 0, 2)
-		this.renderer.drawSprite(ticY, 27, 20)
-		this.renderer.drawSprite(ticY, 27, 12)
-		this.renderer.drawSprite(stickMan, 40, 10)
-		this.renderer.drawSprite(suicide, 10, 20)
+		this.renderer.drawSprite(ticX, 27, 20)
+		this.renderer.drawSprite(ticX, 27, 12)
+		this.renderer.drawSprite(grid, 12, 12)
 		if (toDraw) {
 			this.renderer.draw()
 		}

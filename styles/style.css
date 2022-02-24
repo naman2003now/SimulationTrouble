@@ -6,6 +6,7 @@ body {
 	overflow: hidden;
 	height: 100vh;
 	width: 100vw;
+	background-color: black;
 }
 
 #root {
@@ -16,17 +17,17 @@ body {
 }
 
 #terminal {
-    user-select: none;
+	user-select: none;
 	--font-size: 0px;
-    overflow: hidden;
+	overflow: hidden;
 	display: flex;
 	align-items: start;
 	justify-content: start;
 	width: 80%;
 	height: 80%;
-	color: grey;
+	color: green;
 	font: var(--font-size) Inconsolata, monospace;
-	text-shadow: 0 0 5px grey;
+	text-shadow: 0 0 5px green;
 }
 
 .letter {
