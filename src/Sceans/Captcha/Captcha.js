@@ -147,19 +147,19 @@ export default class TicTacToe {
 	}
 
 	onKeyDown = (event) => {
-		if (event.key == "ArrowRight") {
+		if (event.key == "ArrowRight" || event.key == "d") {
 			if (this.selectorPosition.x < 2) {
 				this.selectorPosition.x += 1
 			}
-		} else if (event.key == "ArrowLeft") {
+		} else if (event.key == "ArrowLeft" || event.key == "a") {
 			if (this.selectorPosition.x > 0) {
 				this.selectorPosition.x -= 1
 			}
-		} else if (event.key == "ArrowUp") {
+		} else if (event.key == "ArrowUp" || event.key == "w") {
 			if (this.selectorPosition.y > 0) {
 				this.selectorPosition.y -= 1
 			}
-		} else if (event.key == "ArrowDown") {
+		} else if (event.key == "ArrowDown" || event.key == "s") {
 			if (this.selectorPosition.y < 2) {
 				this.selectorPosition.y += 1
 			}
