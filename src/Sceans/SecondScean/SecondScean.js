@@ -50,11 +50,7 @@ export default class SecondScean {
 		this.renderer = new Renderer()
 		this.terminalText = "root@tic-tac-toe> "
 		this.minTextLength = this.terminalText.length
-		this.renderer.write(
-			"Play to win! Controls(commands): top right, bottom left, middle middle",
-			0,
-			0
-		)
+		this.renderer.write("This is the last level you can't do shit", 0, 0)
 		window.onkeydown = this.onKeyDown
 		window.onkeyup = this.onKeyUp
 	}
@@ -63,11 +59,7 @@ export default class SecondScean {
 		this.renderer.clearLine(0)
 		this.renderer.clearLine(1)
 		this.renderer.clearLine(2)
-		this.renderer.write(
-			"Play to win! Controls(commands): top right, bottom left, middle middle, etc..",
-			0,
-			0
-		)
+		this.renderer.write("This is the last level you can't do shit", 0, 0)
 
 		this.renderer.write(this.terminalText + "_", 0, 2)
 		this.renderer.drawSprite(ticX, 27, 20)

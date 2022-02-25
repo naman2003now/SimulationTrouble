@@ -1,15 +1,23 @@
-import Renderer from "./renderer.js"
 import SecondScean from "./Sceans/SecondScean/SecondScean.js"
 import TicTacToe from "./Sceans/TicTacToe/TIcTacToe.js"
+import Captcha from "./Sceans/Captcha/Captcha.js"
+import StoryTime from "./Sceans/StoryTime/StoryTime.js"
 
 export default class SceanManager {
-	sceans = [TicTacToe, SecondScean]
-	currentSceanIndex = 0
-	currentScean = new this.sceans[0]()
+	constructor() {
+		this.sceans = [StoryTime, Captcha, TicTacToe, SecondScean]
+		this.currentSceanIndex = 0
+		this.currentScean = new this.sceans[0]()
+		this.currentScean.changeScean = this.changeScean
+		this.updateLoop = setInterval(() => {
+			this.currentScean.update()
+		}, 0)
+	}
 
 	changeScean = () => {
 		window.onkeydown = undefined
 		window.onkeyup = undefined
+		clearInterval(this.updateLoop)
 		let count = 0
 		let secondCount = 1
 		let change = true
@@ -18,10 +26,13 @@ export default class SceanManager {
 				if (change) {
 					change = false
 					this.currentSceanIndex++
-					this.currentScean = new SecondScean()
+					this.currentScean = new this.sceans[
+						this.currentSceanIndex
+					]()
+					this.currentScean.changeScean = this.changeScean
 				}
 				this.currentScean.renderer.clear()
-				//this.currentScean.update(false)
+				this.currentScean.update(false)
 				this.currentScean.renderer.write(
 					"#".repeat(80 * 40),
 					0,
@@ -31,14 +42,11 @@ export default class SceanManager {
 				secondCount++
 				if (secondCount > 40) {
 					clearInterval(changeAnimation)
-					this.currentScean.renderer.clear()
-					this.currentScean.renderer.draw()
-					this.currentScean.renderer.animateText(
-						"Thanos is a piece of shit, 😢",
-						10,
-						10,
-						25
-					)
+					window.onkeydown = this.currentScean.onKeyDown
+					window.onkeyup = this.currentScean.onKeyUp
+					this.updateLoop = setInterval(() => {
+						this.currentScean.update()
+					}, 0)
 				}
 			} else {
 				this.currentScean.renderer.clear()
@@ -47,6 +55,6 @@ export default class SceanManager {
 				this.currentScean.renderer.draw()
 				count++
 			}
-		}, 0)
+		}, 10)
 	}
 }

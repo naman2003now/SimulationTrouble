@@ -23,16 +23,7 @@ const updateFrameBuffers = () => {
 	)
 }
 
-var updateLoop = setInterval(() => {
-	sceanManager.currentScean.update()
-}, 0)
-
 window.onresize = updateFrameBuffers
 window.onkeydown = sceanManager.currentScean.onKeyDown
 window.onkeyup = sceanManager.currentScean.onKeyUp
 updateFrameBuffers()
-setTimeout(() => {
-	clearInterval(updateLoop)
-	console.log("changing")
-	sceanManager.changeScean()
-}, 3000)

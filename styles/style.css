@@ -27,7 +27,7 @@ body {
 	height: 80%;
 	color: green;
 	font: var(--font-size) Inconsolata, monospace;
-	text-shadow: 0 0 5px green;
+	text-shadow: 0 0 10px green;
 }
 
 .letter {

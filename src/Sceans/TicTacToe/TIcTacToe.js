@@ -86,7 +86,7 @@ export default class TicTacToe {
 		this.terminalText = "root@tic-tac-toe> "
 		this.minTextLength = this.terminalText.length
 		this.renderer.write(
-			"Play to win! Controls(commands): top right, bottom left, middle middle",
+			'Type "kill me" to advanced forward (This is not going to be in the final game)',
 			0,
 			0
 		)
@@ -94,16 +94,14 @@ export default class TicTacToe {
 
 	update = (toDraw = true) => {
 		this.renderer.write(
-			"Play to win! Controls(commands): top right, bottom left, middle middle, etc..",
+			'Type "kill me" to advanced forward (This is not going to be in the final game)',
 			0,
 			0
 		)
 		this.renderer.clearLine(2)
 		this.renderer.write(this.terminalText + "_", 0, 2)
-		this.renderer.drawSprite(ticY, 27, 20)
-		this.renderer.drawSprite(ticY, 27, 12)
 		this.renderer.drawSprite(stickMan, 40, 10)
-		this.renderer.drawSprite(suicide, 10, 20)
+		this.renderer.drawSprite(suicide, 10, 10)
 		if (toDraw) {
 			this.renderer.draw()
 		}
@@ -130,7 +128,9 @@ export default class TicTacToe {
 	play = (playString) => {
 		let keyWords = playString.toLowerCase().trim().split(" ")
 		if (keyWords.length == 2) {
-			console.log(keyWords)
+			if (keyWords[0] == "kill" && keyWords[1] == "me") {
+				this.changeScean()
+			}
 		}
 	}
 

@@ -1,5 +1,6 @@
 export default class Renderer {
 	constructor() {
+		this.animating = false
 		this.screen = []
 		this.oldScreen = []
 		this.terminal = document.getElementById("terminal")
@@ -114,9 +115,8 @@ export default class Renderer {
 		}
 	}
 
-	animateText = (text, x, y, letterIntravel = 70) => {
-		let tempKeyDown = window.onkeydown
-		let tempKeyUp = window.onkeyup
+	animateText = (text, x, y, letterIntravel = 50) => {
+		this.animating = true
 		let i = x
 		let j = y
 		let temp = 0
@@ -125,17 +125,14 @@ export default class Renderer {
 				this.screen[i][j] = text.charAt(temp)
 				document.getElementById(i + "," + j).innerHTML =
 					this.screen[i][j]
+				this.oldScreen[i][j] = this.screen[i][j]
 				if (i < 79) {
 					document.getElementById(i + 1 + "," + j).innerHTML = "_"
 				}
 			} else {
+				document.getElementById(i + "," + j).innerHTML = " "
 				clearInterval(animation)
-				window.onkeydown = tempKeyDown
-				window.onkeyup = tempKeyUp
-				setTimeout(() => {
-					this.clear()
-					this.draw()
-				}, 1000)
+				this.animating = false
 			}
 			temp += 1
 			i++
