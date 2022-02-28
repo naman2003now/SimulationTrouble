@@ -87,7 +87,6 @@ def Game():
                         x = int(x) - 1  # 0 based indexing
                         y = int(y) - 1  # 0 based indexing
                         if (minesweeper_map[y][x] == 'X'):
-                            continue
                             print("Game Over!")
                             DisplayMap(minesweeper_map)
                             GameStatus = CheckContinueGame(score)

@@ -6,6 +6,7 @@ import Minesweeper from "./Games/Minesweeper.js"
 import SnakeGame from "./Games/SnakeGame.js"
 import Sokoban from "./Games/Sokoban.js"
 import TicTacToe from "./Games/TicTacToe.js"
+import mainmenu from "./mainmenu.js"
 
 export default class GameMenu {
 	constructor() {
@@ -18,6 +19,7 @@ export default class GameMenu {
 			"SnakeGame",
 			"Tic Tac Toe",
 			"Hungry Snakes",
+			"Main Menu",
 		]
 
 		this.gameOrder = [ColorSwitch]
@@ -77,6 +79,9 @@ export default class GameMenu {
 					break
 				case 6:
 					this.changeScean(HungrySnakes)
+					break
+				case 7:
+					this.changeScean(mainmenu)
 					break
 			}
 		}
