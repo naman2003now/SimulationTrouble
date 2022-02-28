@@ -33,6 +33,7 @@ export default class Introduction {
 				}
 			} else {
 				clearInterval(this.currentAnimation)
+				this.animating = false
 				this.renderer.clear()
 				this.renderer.write(this.story[this.currentLine], 0, 19)
 				this.renderer.draw()
