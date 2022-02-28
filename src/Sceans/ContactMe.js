@@ -1,9 +1,10 @@
 import Renderer from "../renderer.js"
+import mainmenu from "./mainmenu.js"
 
 export default class ContactMe {
 	constructor() {
 		this.renderer = new Renderer()
-		this.options = ["Instagram", "Github"]
+		this.options = ["Instagram", "Github", "Main Menu"]
 
 		this.currentSelection = 0
 	}
@@ -46,6 +47,9 @@ export default class ContactMe {
 					break
 				case 1:
 					window.location.href = "https://github.com/naman2003now"
+					break
+				case 2:
+					this.changeScean(mainmenu)
 					break
 			}
 		}

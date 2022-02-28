@@ -6,7 +6,7 @@ export default class Introduction {
 		this.story = [
 			"Hello, world!, Press enter to contine...",
 			"I am Naman Agrawal. A game developer!",
-			"I have been doing game development for 2+ years. I am not going to bore much    with this non-sense and let's skip to the good part!",
+			"I have been doing game development for more than 2 years. I am not going to bore you much with this non sense. Let's skip to the good part!",
 		]
 		this.currentLine = 0
 		this.renderer = new Renderer()
