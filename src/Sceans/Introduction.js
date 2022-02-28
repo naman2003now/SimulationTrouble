@@ -4,9 +4,9 @@ import mainmenu from "./mainmenu.js"
 export default class Introduction {
 	constructor() {
 		this.story = [
-			"Hello, world!, Press enter to continue...",
+			"Hello, world! Press enter to continue...",
 			"I am Naman Agrawal. A game developer!",
-			"I have been doing game development for more than 2 years. I am not going to bore you much with this non sense. Let's skip to the good part!",
+			"I have been developing games for more than 2 years. I am not going to bore you  much with this nonsense. Let's skip to the good part!",
 		]
 		this.currentLine = 0
 		this.renderer = new Renderer()
