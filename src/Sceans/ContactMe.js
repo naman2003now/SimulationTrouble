@@ -1,21 +1,15 @@
 import Renderer from "../renderer.js"
-import AboutMe from "./aboutMe.js"
-import ContactMe from "./ContactMe.js"
-import GameMenu from "./GameMenu.js"
-import ColorSwitch from "./Games/ColorSwitch.js"
 
-export default class mainmenu {
+export default class ContactMe {
 	constructor() {
 		this.renderer = new Renderer()
-		this.options = ["My projects", "More about me", "Contact me"]
-
-		this.gameOrder = [ColorSwitch]
+		this.options = ["Instagram", "Github"]
 
 		this.currentSelection = 0
 	}
 
 	update = (toDraw = true) => {
-		this.renderer.write("MAIN MENU", 35, 5)
+		this.renderer.write("CONTACT ME", 35, 5)
 
 		for (let i = 0; i < this.options.length; i++) {
 			this.renderer.write("  " + this.options[i], 0, 15 + 2 * i, false)
@@ -47,13 +41,11 @@ export default class mainmenu {
 		} else if (event.key == "Enter") {
 			switch (this.currentSelection) {
 				case 0:
-					this.changeScean(GameMenu)
+					window.location.href =
+						"https://www.instagram.com/naman2003now"
 					break
 				case 1:
-					this.changeScean(AboutMe)
-					break
-				case 2:
-					this.changeScean(ContactMe)
+					window.location.href = "https://github.com/naman2003now"
 					break
 			}
 		}

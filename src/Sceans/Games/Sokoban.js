@@ -1,6 +1,7 @@
 import Renderer from "../../renderer.js"
 import mainmenu from "../mainmenu.js"
 import Chess from "./Chess.js"
+import Minesweeper from "./Minesweeper.js"
 var background = [
 	"######## ######## ######## ######## ######## ########",
 	"######## ######## ######## ######## ######## ########",
@@ -53,12 +54,13 @@ export default class Sokoban {
 		if (event.key == "B" || event.key == "b") {
 			this.changeScean(Chess)
 		} else if (event.key == "N" || event.key == "n") {
+			this.changeScean(Minesweeper)
 		} else if (event.key == "M" || event.key == "m") {
 			this.changeScean(mainmenu)
 		} else if (event.key == "S" || event.key == "s") {
-			window.location.replace("https://github.com/naman2003now/Sokobon")
+			window.location.href = "https://github.com/naman2003now/Sokobon"
 		} else if (event.key == "P" || event.key == "p") {
-			window.location.replace("https://naman2003now.github.io/Sokobon/")
+			window.location.href = "https://naman2003now.github.io/Sokobon/"
 		}
 	}
 

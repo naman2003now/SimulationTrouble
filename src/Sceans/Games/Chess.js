@@ -60,7 +60,7 @@ export default class Chess {
 		} else if (event.key == "M" || event.key == "m") {
 			this.changeScean(mainmenu)
 		} else if (event.key == "S" || event.key == "s") {
-			window.location.replace("https://github.com/naman2003now/Chess")
+			window.location.href = "https://github.com/naman2003now/Chess"
 		}
 	}
 

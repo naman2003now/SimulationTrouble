@@ -1,19 +1,19 @@
 import Renderer from "../../renderer.js"
+import GameMenu from "../GameMenu.js"
 import mainmenu from "../mainmenu.js"
 import TicTacToe from "./TicTacToe.js"
-import Minesweeper from "./Minesweeper.js"
 
 var background = [
 	"#################################",
 	"#                               #",
-	"#          [][][]     0         #",
-	"#          []                   #",
-	"#          []                   #",
+	"#          [][]       0         #",
 	"#          []                   #",
 	"#                               #",
 	"#                               #",
 	"#                               #",
-	"#                               #",
+	"#              [][]   []        #",
+	"#              []     []        #",
+	"#                     []        #",
 	"#                               #",
 	"#                               #",
 	"#                               #",
@@ -21,21 +21,21 @@ var background = [
 	"#################################",
 ]
 
-export default class SnakeGame {
+export default class HungrySnakes {
 	constructor() {
 		this.renderer = new Renderer()
 		this.lastFrameTime = Date.now()
 	}
 
 	update = (toDraw = true) => {
-		this.renderer.write("Snake Game with it's AI", 2, 1)
-		this.renderer.write("Tech: HTML, CSS and Javascript", 2, 3)
+		this.renderer.write("Hungry snakes", 2, 1)
+		this.renderer.write("Tech: C++ and SFML", 2, 3)
 		this.renderer.drawSprite(background, 10, 10)
 		if (toDraw) {
 			this.renderer.draw()
 		}
 		this.renderer.write(
-			"B: Back    N: Next    M: Main menu    V: View   S: View source code",
+			"B: Back    N: Next    M: Main menu   S: View source code",
 			0,
 			38
 		)
@@ -44,17 +44,14 @@ export default class SnakeGame {
 
 	onKeyDown = (event) => {
 		if (event.key == "B" || event.key == "b") {
-			this.changeScean(Minesweeper)
-		} else if (event.key == "N" || event.key == "n") {
 			this.changeScean(TicTacToe)
+		} else if (event.key == "N" || event.key == "n") {
+			this.changeScean(GameMenu)
 		} else if (event.key == "M" || event.key == "m") {
 			this.changeScean(mainmenu)
 		} else if (event.key == "S" || event.key == "s") {
 			window.location.href =
-				"https://github.com/naman2003now/SnakeGameHTML5Canvas"
-		} else if (event.key == "V" || event.key == "v") {
-			window.location.href =
-				"https://naman2003now.github.io/SnakeGameHTML5Canvas/"
+				"https://github.com/naman2003now/Hungry-Snakes"
 		}
 	}
 
