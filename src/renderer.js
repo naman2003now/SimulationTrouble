@@ -140,6 +140,7 @@ export default class Renderer {
 				i = 0
 				j++
 			}
+			console.log("animating")
 		}, letterIntravel)
 		return animation
 	}

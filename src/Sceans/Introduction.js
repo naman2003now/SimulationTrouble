@@ -10,9 +10,12 @@ export default class Introduction {
 		]
 		this.currentLine = 0
 		this.renderer = new Renderer()
-		this.renderer.animateText(this.story[this.currentLine], 0, 20)
+		this.currentAnimation = this.renderer.animateText(
+			this.story[this.currentLine],
+			0,
+			19
+		)
 		this.changeScean = null
-		this.currentAnimation = null
 	}
 
 	update = () => {}
@@ -32,10 +35,11 @@ export default class Introduction {
 					)
 				}
 			} else {
+				console.log(this.currentAnimation)
 				clearInterval(this.currentAnimation)
 				this.renderer.animating = false
 				this.renderer.clear()
-				this.renderer.write(this.story[this.currentLine], 0, 19)
+				this.renderer.write(this.story[this.currentLine], 0, 19, false)
 				this.renderer.draw()
 			}
 		}
