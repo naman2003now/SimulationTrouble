@@ -19,6 +19,7 @@ export default class GameMenu {
 			"SnakeGame",
 			"Tic Tac Toe",
 			"Hungry Snakes",
+			"More Projects",
 			"Main Menu",
 		]
 
@@ -31,12 +32,12 @@ export default class GameMenu {
 		this.renderer.write("MY PROJECTS", 35, 5)
 
 		for (let i = 0; i < this.options.length; i++) {
-			this.renderer.write("  " + this.options[i], 0, 15 + 2 * i, false)
+			this.renderer.write("  " + this.options[i], 0, 10 + 2 * i, false)
 			if (this.currentSelection == i) {
 				this.renderer.write(
 					"> " + this.options[i],
 					0,
-					15 + 2 * i,
+					10 + 2 * i,
 					false
 				)
 			}
@@ -81,6 +82,9 @@ export default class GameMenu {
 					this.changeScean(HungrySnakes)
 					break
 				case 7:
+					window.location.href = "https://github.com/naman2003now"
+					break
+				case 8:
 					this.changeScean(mainmenu)
 					break
 			}
