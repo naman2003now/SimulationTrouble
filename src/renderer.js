@@ -115,7 +115,7 @@ export default class Renderer {
 		}
 	}
 
-	animateText = (text, x, y, letterIntravel = 50) => {
+	animateText = (text, x, y, letterIntravel = 30) => {
 		this.animating = true
 		let i = x
 		let j = y

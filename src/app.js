@@ -1,4 +1,7 @@
 import SceanManager from "./SceanManager.js"
+import Introduction from "./Sceans/Introduction.js"
+import mainmenu from "./Sceans/mainmenu.js"
+import Chess from "./Sceans/Games/Chess.js"
 
 // The resoloution = 80 x 40
 
@@ -9,7 +12,8 @@ var gameSettings = {
 var root = document.getElementById("root")
 var terminal = document.getElementById("terminal")
 var terminalSize = 0
-var sceanManager = new SceanManager()
+// var sceanManager = new SceanManager(Chess)
+var sceanManager = new SceanManager(Introduction)
 
 const updateFrameBuffers = () => {
 	terminalSize = Math.min(window.innerHeight, window.innerWidth)

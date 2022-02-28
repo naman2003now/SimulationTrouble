@@ -1,20 +1,13 @@
-import SecondScean from "./Sceans/SecondScean/SecondScean.js"
-import TicTacToe from "./Sceans/TicTacToe/TIcTacToe.js"
-import Captcha from "./Sceans/Captcha/Captcha.js"
-import StoryTime from "./Sceans/StoryTime/StoryTime.js"
-
 export default class SceanManager {
-	constructor() {
-		this.sceans = [StoryTime, Captcha, TicTacToe, SecondScean]
-		this.currentSceanIndex = 0
-		this.currentScean = new this.sceans[0]()
+	constructor(Scean) {
+		this.currentScean = new Scean()
 		this.currentScean.changeScean = this.changeScean
 		this.updateLoop = setInterval(() => {
 			this.currentScean.update()
 		}, 0)
 	}
 
-	changeScean = () => {
+	changeScean = (Scean) => {
 		window.onkeydown = undefined
 		window.onkeyup = undefined
 		clearInterval(this.updateLoop)
@@ -23,12 +16,11 @@ export default class SceanManager {
 		let change = true
 		var changeAnimation = setInterval(() => {
 			if (count > 40) {
+				// Ending the transition with change in scean
 				if (change) {
+					//Change Scean
 					change = false
-					this.currentSceanIndex++
-					this.currentScean = new this.sceans[
-						this.currentSceanIndex
-					]()
+					this.currentScean = new Scean()
 					this.currentScean.changeScean = this.changeScean
 				}
 				this.currentScean.renderer.clear()
@@ -40,6 +32,8 @@ export default class SceanManager {
 				)
 				this.currentScean.renderer.draw()
 				secondCount++
+
+				// End transition and init the next scean
 				if (secondCount > 40) {
 					clearInterval(changeAnimation)
 					window.onkeydown = this.currentScean.onKeyDown
@@ -49,6 +43,7 @@ export default class SceanManager {
 					}, 0)
 				}
 			} else {
+				// Start transition
 				this.currentScean.renderer.clear()
 				this.currentScean.update(false)
 				this.currentScean.renderer.write("#".repeat(80 * count), 0, 0)
