@@ -141,5 +141,6 @@ export default class Renderer {
 				j++
 			}
 		}, letterIntravel)
+		return animation
 	}
 }

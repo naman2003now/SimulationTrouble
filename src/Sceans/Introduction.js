@@ -12,19 +12,30 @@ export default class Introduction {
 		this.renderer = new Renderer()
 		this.renderer.animateText(this.story[this.currentLine], 0, 20)
 		this.changeScean = null
+		this.currentAnimation = null
 	}
 
 	update = () => {}
-
 	onKeyDown = (event) => {
-		if (event.key == "Enter" && !this.renderer.animating) {
-			this.currentLine++
-			if (this.currentLine >= this.story.length) {
-				this.changeScean(mainmenu)
+		if (event.key == "Enter") {
+			if (!this.renderer.animating) {
+				this.currentLine++
+				if (this.currentLine >= this.story.length) {
+					this.changeScean(mainmenu)
+				} else {
+					this.renderer.clear()
+					this.renderer.draw()
+					this.currentAnimation = this.renderer.animateText(
+						this.story[this.currentLine],
+						0,
+						19
+					)
+				}
 			} else {
+				clearInterval(this.currentAnimation)
 				this.renderer.clear()
+				this.renderer.write(this.story[this.currentLine], 0, 19)
 				this.renderer.draw()
-				this.renderer.animateText(this.story[this.currentLine], 0, 19)
 			}
 		}
 	}
