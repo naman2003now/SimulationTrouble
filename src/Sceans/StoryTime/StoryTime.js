@@ -5,7 +5,6 @@ export default class StoryTime {
 		this.story = [
 			"This the introductary story time! Press enter to continue...",
 			"Here we are going to explain the story of our game",
-			"We are going to explain how  our stepSis got stuck in the washing machine",
 		]
 		this.currentLine = 0
 		this.renderer = new Renderer()
