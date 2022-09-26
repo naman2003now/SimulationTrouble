@@ -5,7 +5,7 @@ export default class Introduction {
 	constructor() {
 		this.story = [
 			"Hello, world! Press enter to continue...",
-			"I am Naman Agrawal. A game developer!",
+			"I am Naman Agrawal!",
 			"I have been developing games for more than 2 years. I am not going to bore you  much with this nonsense. Let's skip to the good part!",
 		]
 		this.currentLine = 0
